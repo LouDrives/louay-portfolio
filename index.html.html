@@ -1,0 +1,596 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Louay Azouaghe – AI & Big Data Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-light: #dbeafe;
+      --bg: #0f172a;
+      --card: #020617;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #38bdf8;
+      --border: #1f2937;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 55%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(15,23,42,0.8);
+      border-bottom: 1px solid rgba(55,65,81,0.6);
+    }
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-title {
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .nav-links a {
+      margin-left: 1.25rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.75rem 1.5rem 3rem;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 2rem;
+      align-items: center;
+      padding: 2rem 0 2.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.7);
+      padding: 0.2rem 0.75rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+    .badge span {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      margin-right: 0.45rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.1rem, 3vw, 2.8rem);
+      margin-bottom: 0.6rem;
+    }
+    .hero h1 span {
+      color: var(--accent);
+    }
+    .hero-sub {
+      color: var(--muted);
+      max-width: 34rem;
+      font-size: 0.96rem;
+      margin-bottom: 1.1rem;
+    }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
+    .hero-tag {
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.7);
+      padding: 0.1rem 0.6rem;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+    .btn {
+      border-radius: 999px;
+      padding: 0.55rem 1.1rem;
+      font-size: 0.86rem;
+      font-weight: 500;
+      border: 1px solid transparent;
+      cursor: default;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #22c55e);
+      color: white;
+      box-shadow: 0 10px 30px rgba(37,99,235,0.35);
+    }
+    .btn-ghost {
+      border-color: rgba(148,163,184,0.8);
+      color: var(--muted);
+      background: rgba(15,23,42,0.7);
+    }
+    .hero-side {
+      justify-self: center;
+    }
+    .profile-card {
+      border-radius: 1.5rem;
+      padding: 1.4rem 1.3rem;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 70%);
+      border: 1px solid rgba(55,65,81,0.9);
+      box-shadow: 0 18px 45px rgba(15,23,42,0.9);
+      width: 100%;
+      max-width: 320px;
+    }
+    .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #38bdf8, #0f172a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.1rem;
+      font-weight: 700;
+      border: 2px solid rgba(148,163,184,0.5);
+      margin-bottom: 0.7rem;
+    }
+    .profile-name {
+      font-weight: 600;
+      margin-bottom: 0.1rem;
+    }
+    .profile-role {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.7rem;
+    }
+    .profile-info {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+    .profile-info div {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.1rem;
+    }
+    .profile-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-top: 1px dashed rgba(75,85,99,0.9);
+      padding-top: 0.6rem;
+      margin-top: 0.2rem;
+    }
+    section {
+      padding: 2rem 0 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    section:last-of-type {
+      border-bottom: none;
+    }
+    .section-title {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .section-subtitle {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 1.1rem;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 1.6rem;
+    }
+    .card {
+      background: linear-gradient(145deg, rgba(15,23,42,0.98), rgba(15,23,42,0.95));
+      border-radius: 1.25rem;
+      padding: 1.1rem 1.2rem;
+      border: 1px solid rgba(55,65,81,0.95);
+      box-shadow: 0 10px 30px rgba(15,23,42,0.9);
+      font-size: 0.9rem;
+    }
+    .card h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.3rem;
+    }
+    .meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.5rem;
+    }
+    .pill {
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(55,65,81,0.9);
+      padding: 0.1rem 0.55rem;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+    .skills-grid h3 {
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+    }
+    .skills-grid ul {
+      list-style: none;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .skills-grid li::before {
+      content: "• ";
+      color: var(--accent);
+    }
+    .exp-item h3 {
+      font-size: 0.96rem;
+    }
+    .exp-item .meta {
+      margin-bottom: 0.5rem;
+    }
+    .goals {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 1.6rem;
+      align-items: center;
+    }
+    .contact-list {
+      list-style: none;
+      font-size: 0.9rem;
+    }
+    .contact-list li {
+      margin-bottom: 0.35rem;
+    }
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.7rem;
+    }
+    .chip {
+      border-radius: 999px;
+      border: 1px dashed rgba(148,163,184,0.9);
+      padding: 0.2rem 0.7rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding: 1.5rem 1rem 2.5rem;
+    }
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-side {
+        order: -1;
+      }
+      .grid-2,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+      }
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .nav-links a {
+        margin-left: 0;
+        margin-right: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="nav-title">LOUAY AZOUAGHE · AI & BIG DATA</div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#goals">Goals</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div>
+        <div class="badge"><span></span>Open to AI / Data opportunities</div>
+        <h1>
+          Hi, I’m <span>Louay</span> – AI & Big Data Engineering student building
+          <span>real-world intelligent systems</span>.
+        </h1>
+        <p class="hero-sub">
+          I design and deploy machine learning, NLP and computer vision solutions that turn raw data into
+          actionable insights. Currently focused on applied AI for document analysis and feedback understanding.
+        </p>
+        <div class="hero-tags">
+          <div class="hero-tag">Machine Learning</div>
+          <div class="hero-tag">NLP & Computer Vision</div>
+          <div class="hero-tag">Cloud & Big Data</div>
+        </div>
+        <div class="hero-actions">
+          <div class="btn btn-primary">Primary target: Junior AI Engineer</div>
+          <div class="btn btn-ghost">Model projects: AI OCR · Feedback Analyzer</div>
+        </div>
+      </div>
+
+      <aside class="hero-side">
+        <div class="profile-card">
+          <div class="avatar">L</div>
+          <div class="profile-name">Louay Azouaghe</div>
+          <div class="profile-role">AI & Big Data Engineering – UIR</div>
+          <div class="profile-info">
+            <div><span>Location</span><span>Rabat, Morocco</span></div>
+            <div><span>Email</span><span>louay.azouaghe.2002@gmail.com</span></div>
+            <div><span>Phone</span><span>+212 6 18 32 34 95</span></div>
+          </div>
+          <div class="profile-meta">
+            <span>Interested in: AI · Data · Cloud</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">
+        Final-year Artificial Intelligence & Big Data Engineering student at the International University of Rabat,
+        with a strong focus on applied machine learning and intelligent systems.
+      </p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Who I am</h3>
+          <p>
+            I enjoy designing AI solutions that actually get used – not just experiments. My work combines machine
+            learning, NLP and computer vision, with an emphasis on clarity, reliability and impact.
+          </p>
+          <p>
+            I like understanding the full lifecycle of a project: from data collection and model design to deployment,
+            documentation and user experience.
+          </p>
+        </div>
+        <div class="card">
+          <h3>At a glance</h3>
+          <p class="meta">Quick facts</p>
+          <p><strong>Degree:</strong> Engineering in AI & Big Data – UIR (2019–2025)</p>
+          <p><strong>Languages:</strong> English, French, Arabic</p>
+          <p><strong>Interests:</strong> Applied AI, cloud solutions, data products</p>
+          <div class="pill-row">
+            <span class="pill">AI Engineer</span>
+            <span class="pill">Data Science</span>
+            <span class="pill">ML Engineering</span>
+            <span class="pill">Cloud AI</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">
+        A selection of projects showcasing my experience with OCR, NLP, data processing and end‑to‑end AI applications.
+      </p>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Platforme Étudiant – AI OCR System</h3>
+          <p class="meta">Ministry of Finance · Python · Tesseract OCR · Streamlit · Cloud Vision</p>
+          <p>
+            Developed an AI‑powered platform to read and verify Moroccan CIN and Baccalaureate documents. Designed the
+            OCR pipeline, data validation layer and user interface for real‑time document checking.
+          </p>
+          <p>
+            The prototype automatically extracts key fields from scanned documents, flags inconsistencies and assists
+            human operators in making eligibility decisions faster and more reliably.
+          </p>
+          <div class="pill-row">
+            <span class="pill">OCR</span>
+            <span class="pill">Computer Vision</span>
+            <span class="pill">Python</span>
+            <span class="pill">Streamlit</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Automated Feedback Analyzer</h3>
+          <p class="meta">Academic Project · Python · NLP · Word2Vec · TF‑IDF · Streamlit</p>
+          <p>
+            Designed a web app that processes large volumes of textual feedback to extract sentiment, topics and
+            concise summaries. Combined classical NLP (TF‑IDF) with distributed representations (Word2Vec) to better
+            capture semantic relationships.
+          </p>
+          <p>
+            The tool provides dashboards that help stakeholders quickly understand what users are saying, what themes
+            dominate, and where to focus improvements.
+          </p>
+          <div class="pill-row">
+            <span class="pill">NLP</span>
+            <span class="pill">Sentiment Analysis</span>
+            <span class="pill">Topic Extraction</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-subtitle">Technical and soft skills I rely on to build and ship AI‑driven solutions.</p>
+      <div class="skills-grid">
+        <div>
+          <h3>Programming</h3>
+          <ul>
+            <li>Python (AI / scripting / data)</li>
+            <li>Java (OOP, backend basics)</li>
+            <li>SQL for querying and analysis</li>
+          </ul>
+        </div>
+        <div>
+          <h3>AI & Machine Learning</h3>
+          <ul>
+            <li>TensorFlow, PyTorch, scikit‑learn</li>
+            <li>Classification, regression, deep learning</li>
+            <li>Computer vision & OCR, basic NLP</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Data & Cloud</h3>
+          <ul>
+            <li>Pandas, NumPy, data cleaning & prep</li>
+            <li>ETL logic and data pipelines</li>
+            <li>Google Cloud ecosystem, Streamlit</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Soft Skills</h3>
+          <ul>
+            <li>Analytical and structured thinking</li>
+            <li>Teamwork and communication</li>
+            <li>Curiosity and willingness to learn</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2 class="section-title">Experience & Education</h2>
+      <div class="grid-2">
+        <div class="card exp-item">
+          <h3>AI Intern – Ministry of Finance</h3>
+          <p class="meta">June – August 2025 · Rabat, Morocco</p>
+          <p>
+            Worked on the “Platforme Étudiant – AI OCR” project for document verification. Designed and evaluated OCR
+            workflows, implemented a prototype in Streamlit and collaborated with internal stakeholders.
+          </p>
+          <p>
+            Contributed to technical documentation, testing scenarios and presentations supporting the ministry’s
+            digital transformation initiatives.
+          </p>
+        </div>
+        <div class="card exp-item">
+          <h3>AI & Big Data Engineering – UIR</h3>
+          <p class="meta">2019 – 2025 · Université Internationale de Rabat</p>
+          <p>
+            Engineering curriculum focused on machine learning, deep learning, data warehousing, cloud computing and
+            software engineering. Developed multiple projects in AI, data analysis and cloud‑based applications.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="goals">
+      <h2 class="section-title">Career Goals</h2>
+      <p class="goals">
+        In the short term, I am looking for a role as a <strong>Junior AI Engineer</strong> or
+        <strong>Data Scientist</strong> where I can design, train and deploy models in collaboration with product and
+        engineering teams.
+      </p>
+      <p class="goals" style="margin-top:0.6rem;">
+        In the long term, I aim to grow into an <strong>ML Engineer</strong> working on scalable, human‑centric AI
+        systems, and contributing to applied research around vision, NLP and intelligent automation.
+      </p>
+      <div class="chip-row">
+        <span class="chip">Junior AI Engineer</span>
+        <span class="chip">Data Science</span>
+        <span class="chip">ML Engineering</span>
+        <span class="chip">Cloud AI</span>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-grid">
+        <div>
+          <p class="section-subtitle">
+            Feel free to reach out for collaboration, internship or job opportunities, or simply to talk about AI,
+            data and interesting projects.
+          </p>
+          <ul class="contact-list">
+            <li><strong>Email:</strong> louay.azouaghe.2002@gmail.com</li>
+            <li><strong>Phone:</strong> +212 6 18 32 34 95</li>
+            <li><strong>Location:</strong> Rabat, Morocco</li>
+            <li><strong>LinkedIn / GitHub:</strong> add your profile links when you publish</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>How this maps to Google Sites</h3>
+          <p class="meta">Sections you can recreate as pages or anchors</p>
+          <ul style="font-size:0.85rem; color:var(--muted); list-style:disc; padding-left:1.1rem;">
+            <li><strong>Home / Welcome:</strong> hero + quick intro</li>
+            <li><strong>About:</strong> “Who I am” & “At a glance” cards</li>
+            <li><strong>Projects:</strong> two main project cards</li>
+            <li><strong>Skills:</strong> four skill columns</li>
+            <li><strong>Experience:</strong> internship + degree</li>
+            <li><strong>Goals & Contact:</strong> career goals + contact info</li>
+          </ul>
+          <p style="margin-top:0.6rem; font-size:0.82rem; color:var(--muted);">
+            Use this page as visual inspiration: you can copy the text blocks into Google Sites, use “cards” and
+            “columns”, and match the sections with your navigation menu.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 · Louay Azouaghe · ePortfolio mockup for Google Sites
+  </footer>
+</body>
+</html>
